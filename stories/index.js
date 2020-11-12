@@ -152,3 +152,25 @@ storiesOf("Movie Details Page/MovieHeader", module)
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => <MovieHeader movie={sample} />);
+
+  storiesOf("Upcoming/MovieCard", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => (
+    <MovieCard
+      movie={sample}
+      action={movie => <button className="btn w-100 btn-primary">Add To WatchList</button>}
+    />
+  ))
+  .add("exception", () => {
+    const sampleNoPoster = { ...sample, poster_path: undefined };
+    return (
+      <MovieCard
+        movie={sampleNoPoster}
+        action={movie => (
+          <button className="btn w-100 btn-primary">Add To WatchList</button>
+        )}
+      />
+    );
+  });
