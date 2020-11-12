@@ -15,9 +15,9 @@ const UpcomingMoviesPage = () => {
     <PageTemplate
       title='Upcoming Movies'
       movies={movies}
-      action={(movie) => 
-         <AddToWatchListButton movie={movie} />
-      }
+      action={(movie) => {
+        return <AddToWatchListButton movie={movie} />
+      }}
     />
   );
 };
