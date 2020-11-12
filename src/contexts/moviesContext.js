@@ -21,6 +21,7 @@ const reducer = (state, action) => {
             : m
         ),
       };
+      case "add-watch-list":
     default:
       return state
   }
@@ -44,11 +45,23 @@ const MoviesContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const addToWatchList = (movie, review) => {
+    
+ };
+ useEffect(() => {
+   getMovies().then((movies) => {
+     dispatch({ type: "add-watch-list", payload: { movies } });
+   });
+   
+ }, []);
+  
+
   return (
     <MoviesContext.Provider
       value={{
         movies: state.movies,
         favorites: state.favorites,
+        addWatchList: addToWatchList,
         addToFavorites: addToFavorites,
         addReview: addReview,
       }}
