@@ -14,6 +14,7 @@ import AddMovieReviewPage from './pages/addMovieReviewPage'
 import "bootstrap/dist/css/bootstrap.min.css"
 import  AuthProvider from "./contexts/authContext"
 import signUpPage from "./pages/signUpPage";
+import loginPage from "./pages/loginPage";
 
 const App = () => {
     return (
@@ -30,6 +31,7 @@ const App = () => {
                                 <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
                                 <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                                 <Route exact path="/movies/signup" component={signUpPage}/>
+                                <Route exact path="/movies/login" component={loginPage}/>
                                 <Route path="/movies/:id" component={MoviePage} />
                                 <Route path="/" component={HomePage} />
                                 <Redirect from="*" to="/" />
