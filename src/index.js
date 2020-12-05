@@ -16,6 +16,7 @@ import  AuthProvider from "./contexts/authContext"
 import signUpPage from "./pages/signUpPage";
 import loginPage from "./pages/loginPage";
 import profilePage from "./pages/profilePage";
+import PrivateRoute from  "./components/privateRoute"
 
 const App = () => {
     return (
@@ -35,7 +36,7 @@ const App = () => {
                                 <Route exact path="/movies/login" component={loginPage}/>
                                 <Route exact path="/movies/profile" component={profilePage}/>
                                 <Route path="/movies/:id" component={MoviePage} />
-                                <Route path="/" component={HomePage} />
+                                <PrivateRoute path="/" component={HomePage} />
                                 <Redirect from="*" to="/" />
                             </Switch>
                             </AuthProvider>
