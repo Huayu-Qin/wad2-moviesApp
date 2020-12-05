@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap"
 
 function signUpPage() {
     return (
-        <div >
+        
             <Container
                 classname="d-flex align-items-center justify-content-center"
                 style={{ minHeight: "100vh" }}
@@ -15,7 +15,7 @@ function signUpPage() {
                     <Signup />
                 </div>
             </Container>
-        </div>
+        
     )
 }
 

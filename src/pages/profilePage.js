@@ -1,10 +1,10 @@
 import React from 'react'
-import Login from "../components/login"
+import Profile from "../components/profile"
 import { Container } from "react-bootstrap"
 
 
 
-function loginPage() {
+function profilePage() {
     return (
         
             <Container
@@ -12,11 +12,11 @@ function loginPage() {
                 style={{ minHeight: "100vh" }}
             >
                 <div className="w-100" style={{ maxWidth: "400px" }}>
-                    <Login />
+                    <Profile />
                 </div>
             </Container>
         
     )
 }
 
-export default loginPage;
+export default profilePage;
