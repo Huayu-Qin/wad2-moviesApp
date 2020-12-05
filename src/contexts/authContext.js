@@ -18,16 +18,24 @@ export default function AuthProvider({ children }) {
         return auth.createUserWithEmailAndPassword(email, password)
     }
 
-    function login(email, password){
+    function login(email, password) {
         return auth.signInWithEmailAndPassword(email, password)
     }
 
-    function logout(){
+    function logout() {
         return auth.signOut()
     }
 
-    function resetPassword(email){
+    function resetPassword(email) {
         return auth.sendPasswordResetEmail(email)
+    }
+
+    function updateEmail(email) {
+        return currentUser.updateEmail(email)
+    }
+
+    function updatePassword(password) {
+        return currentUser.updatePassword(password)
     }
 
     useEffect(() => {
@@ -43,7 +51,9 @@ export default function AuthProvider({ children }) {
         signup,
         login,
         logout,
-        resetPassword
+        resetPassword,
+        updateEmail,
+        updatePassword
     }
     return (
         <AuthContext.Provider
