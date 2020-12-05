@@ -12,7 +12,7 @@ export default function Profile() {
         setError('')
         try {
             await logout()
-            history.push('/login')
+            history.push('/movies/login')
         } catch {
             setError('Failed to log out')
         }
@@ -25,7 +25,7 @@ export default function Profile() {
                     <h2 className="text-center mb-4">Profile</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
                     <strong>Email:</strong> {currentUser.email}
-                    <Link to="/update-profile" classname="btn btn-primary w-100 mt-3">
+                    <Link to="/movies/update-profile" classname="btn btn-primary w-100 mt-3">
                         Update Profile
                     </Link>
                 </Card.Body>
