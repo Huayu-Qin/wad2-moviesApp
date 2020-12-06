@@ -32,8 +32,8 @@ const App = () => {
                             <Switch>
                                 <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                                 <Route path="/reviews/:id" component={MovieReviewPage} />
-                                <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                                <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+                                <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                                <PrivateRoute exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                                 <Route exact path="/movies/signup" component={signUpPage}/>
                                 <Route exact path="/movies/login" component={loginPage}/>
                                 <PrivateRoute exact path="/movies/profile" component={profilePage}/>

@@ -62,8 +62,10 @@ export default function UpdateProfile() {
                             <Form.Label>Password Confirmation</Form.Label>
                             <Form.Control type="password" ref={passwordConfirmRef} placeholder="Password should keep the same" />
                         </Form.Group>
-                        <Button diaabled={loading} classname="w-100" type="submit">
+                        
+                        <Button disabled={loading} classname="w-100" type="submit">
                             Update
+                        
                     </Button>
                     </Form>
                 </Card.Body>
