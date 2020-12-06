@@ -19,6 +19,8 @@ import profilePage from "./pages/profilePage";
 import PrivateRoute from  "./components/privateRoute"
 import forgetPasswordPage from "./pages/forgetPasswordPage"
 import updateProfilePage from "./pages/updateProfilePage"
+import PeoplePage from './pages/peoplePage'
+import PeopleDetailsPage from './pages/peopleDetailsPage'
 
 const App = () => {
     return (
@@ -39,6 +41,8 @@ const App = () => {
                                 <PrivateRoute exact path="/movies/profile" component={profilePage}/>
                                 <Route exact path="/movies/forget-password" component={forgetPasswordPage}/>
                                 <PrivateRoute exact path="/movies/update-profile" component={updateProfilePage}/>
+                                <Route exact path="/people" component={PeoplePage}/>
+                                <Route exact path="/people/:id" component={PeopleDetailsPage}/>
                                 <Route path="/movies/:id" component={MoviePage} />
                                 <PrivateRoute path="/" component={HomePage} />
                                 <Redirect from="*" to="/" />

@@ -2,26 +2,29 @@ import React from "react";
 import "./peopleCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../globals/fontawesome";
+import { Link } from 'react-router-dom'
 
 const PeopleCard = props => {
   return (
     <div className="col-sm-3">
       <div className="card  bg-white">
-        <img
-          className="card-img-tag center "
-          alt={props.people.name}
-          src={
-            props.people.profile_path
-              ? `https://image.tmdb.org/t/p/w500/${props.people.profile_path}`
-              : "./film-poster-placeholder.png"
-          }
-        />
+        <Link to={`/people/${props.people.id}`}>
+          <img
+            className="card-img-tag center "
+            alt={props.people.name}
+            src={
+              props.people.profile_path
+                ? `https://image.tmdb.org/t/p/w500/${props.people.profile_path}`
+                : "./film-poster-placeholder.png"
+            }
+          />
+        </Link>
         <div className="card-body">
           <h4 className="card-title ">{props.people.name}</h4>
-          <p>
+          {/* <p>
             <FontAwesomeIcon icon={["fas", "calendar"]} />
             <span> {props.people.birthday}</span>
-          </p>
+          </p> */}
           <p>
             <FontAwesomeIcon icon={["fas", "star"]} />
             <span> {props.people.popularity}</span>
@@ -37,4 +40,4 @@ const PeopleCard = props => {
   );
 };
 
-export default PeopleCard ;
+export default PeopleCard;
