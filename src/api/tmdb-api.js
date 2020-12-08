@@ -37,3 +37,17 @@ export const getUpcomingMovies = () => {
         .then(res => res.json())
         .then(json => json.results);
 };
+
+export const getPeoples = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    )
+      .then(res => res.json())
+      .then(json => json.results);
+  };
+
+  export const getPeople = id => {
+    return fetch(
+      `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    ).then(res => res.json());
+  };

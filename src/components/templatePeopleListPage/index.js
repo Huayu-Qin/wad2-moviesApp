@@ -29,7 +29,7 @@ const PeopleListPageTemplate = ({ peoples, name, buttonHandler }) => {
             <PeopleList
                 buttonHandler={buttonHandler}
                 peoples={displayedPeoples}
-            ></PeopleList>
+            />
         </>
     );
 };
