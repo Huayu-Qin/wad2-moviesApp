@@ -3,7 +3,7 @@ import Header from "../headerPeopleList";
 import PeopleList from "../peopleList";
 //import FilterControls from "../filterControls";
 
-const PeopleListPageTemplate = ({ peoples, name, buttonHandler }) => {
+const PeopleListPageTemplate = ({ peoples, title, action }) => {
     const [nameFilter] = useState("");
     //   const [genreFilter, setGenreFilter] = useState("0");
     //   const genre = Number(genreFilter)
@@ -24,10 +24,10 @@ const PeopleListPageTemplate = ({ peoples, name, buttonHandler }) => {
 
     return (
         <>
-            <Header title={name} numPeoples={displayedPeoples.length} />
+            <Header title={title} numPeoples={displayedPeoples.length} />
             {/* <FilterControls onUserInput={handleChange} numMovies={displayedMovies.length}/> */}
             <PeopleList
-                buttonHandler={buttonHandler}
+                action={action}
                 peoples={displayedPeoples}
             />
         </>

@@ -8,7 +8,7 @@ const PeopleCard = props => {
 
   const handleAddToMarks = e => {
     e.preventDefault()
-    props.buttonHandler(props.people.id) 
+    props.action(props.people.id) 
   }
 
   return (

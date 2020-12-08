@@ -12,16 +12,17 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import "bootstrap/dist/css/bootstrap.min.css"
-import  AuthProvider from "./contexts/authContext"
+import AuthProvider from "./contexts/authContext"
 import signUpPage from "./pages/signUpPage";
 import loginPage from "./pages/loginPage";
 import profilePage from "./pages/profilePage";
-import PrivateRoute from  "./components/privateRoute"
+import PrivateRoute from "./components/privateRoute"
 import forgetPasswordPage from "./pages/forgetPasswordPage"
 import updateProfilePage from "./pages/updateProfilePage"
 import PeoplePage from './pages/peoplePage'
 import PeopleDetailsPage from './pages/peopleDetailsPage'
 import MarkPeoplePage from './pages/MarkPeoplePage'
+import PeoplesContextProvider from './contexts/peoplesContext'
 
 const App = () => {
     return (
@@ -30,27 +31,29 @@ const App = () => {
                 <SiteHeader />
                 <div className="container-fluid">
                     <MoviesContextProvider>
-                        <GenresContextProvider>    {/* NEW */}
-                            <AuthProvider>
-                            <Switch>
-                                <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-                                <Route path="/reviews/:id" component={MovieReviewPage} />
-                                <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                                <PrivateRoute exact path="/movies/upcoming" component={UpcomingMoviesPage} />
-                                <Route exact path="/movies/signup" component={signUpPage}/>
-                                <Route exact path="/movies/login" component={loginPage}/>
-                                <PrivateRoute exact path="/movies/profile" component={profilePage}/>
-                                <Route exact path="/movies/forget-password" component={forgetPasswordPage}/>
-                                <PrivateRoute exact path="/movies/update-profile" component={updateProfilePage}/>
-                                <Route exact path="/people" component={PeoplePage}/>
-                                <Route exact path="/people/marks" component={MarkPeoplePage}/>
-                                <Route exact path="/people/:id" component={PeopleDetailsPage}/>
-                                <Route path="/movies/:id" component={MoviePage} />
-                                <PrivateRoute path="/" component={HomePage} />
-                                <Redirect from="*" to="/" />
-                            </Switch>
-                            </AuthProvider>
-                        </GenresContextProvider>    {/* NEW */}
+                        <PeoplesContextProvider>
+                            <GenresContextProvider>    {/* NEW */}
+                                <AuthProvider>
+                                    <Switch>
+                                        <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+                                        <Route path="/reviews/:id" component={MovieReviewPage} />
+                                        <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                                        <PrivateRoute exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+                                        <Route exact path="/movies/signup" component={signUpPage} />
+                                        <Route exact path="/movies/login" component={loginPage} />
+                                        <PrivateRoute exact path="/movies/profile" component={profilePage} />
+                                        <Route exact path="/movies/forget-password" component={forgetPasswordPage} />
+                                        <PrivateRoute exact path="/movies/update-profile" component={updateProfilePage} />
+                                        <Route exact path="/people" component={PeoplePage} />
+                                        <Route exact path="/people/marks" component={MarkPeoplePage} />
+                                        <Route exact path="/people/:id" component={PeopleDetailsPage} />
+                                        <Route path="/movies/:id" component={MoviePage} />
+                                        <PrivateRoute path="/" component={HomePage} />
+                                        <Redirect from="*" to="/" />
+                                    </Switch>
+                                </AuthProvider>
+                            </GenresContextProvider>
+                        </PeoplesContextProvider>
                     </MoviesContextProvider>
                 </div>
             </div>
