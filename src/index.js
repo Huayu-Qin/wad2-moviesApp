@@ -21,6 +21,7 @@ import forgetPasswordPage from "./pages/forgetPasswordPage"
 import updateProfilePage from "./pages/updateProfilePage"
 import PeoplePage from './pages/peoplePage'
 import PeopleDetailsPage from './pages/peopleDetailsPage'
+import MarkPeoplePage from './pages/MarkPeoplePage'
 
 const App = () => {
     return (
@@ -42,6 +43,7 @@ const App = () => {
                                 <Route exact path="/movies/forget-password" component={forgetPasswordPage}/>
                                 <PrivateRoute exact path="/movies/update-profile" component={updateProfilePage}/>
                                 <Route exact path="/people" component={PeoplePage}/>
+                                <Route exact path="/people/marks" component={MarkPeoplePage}/>
                                 <Route exact path="/people/:id" component={PeopleDetailsPage}/>
                                 <Route path="/movies/:id" component={MoviePage} />
                                 <PrivateRoute path="/" component={HomePage} />

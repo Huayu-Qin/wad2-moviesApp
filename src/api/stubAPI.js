@@ -10,6 +10,18 @@ class StubAPI {
     getAll() {
         return this.favoriteMovies;
     }
+
+    peopleConstructor(){
+        this.MarkPeoples = [];
+    }
+    
+    addPeople(people) {
+        this.MarkPeoples.push(people);
+    }
+
+    getAllPeople(){
+        return this.MarkPeoples;
+    }
 }
 
 export default new StubAPI();

@@ -5,6 +5,12 @@ import "../../globals/fontawesome";
 import { Link } from 'react-router-dom'
 
 const PeopleCard = props => {
+
+  const handleAddToMarks = e => {
+    e.preventDefault()
+    props.buttonHandler(props.people.id) 
+  }
+
   return (
     <div className="col-sm-3">
       <div className="card  bg-white">
@@ -31,7 +37,8 @@ const PeopleCard = props => {
           </p>
         </div>
         <div className="card-footer">
-          <button type="button" className="btn w-100 btn-primary">
+          <button type="button" className="btn w-100 btn-primary"
+          onClick={handleAddToMarks}>
             Mark the person
           </button>
         </div>
