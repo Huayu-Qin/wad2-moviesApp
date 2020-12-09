@@ -1,14 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const AddComplimentButton = () => {
+const ComplimentButton = ({ people }) => {
   return (
-    <button
-      type="button"
-      className="btn w-100 btn-primary"
+    <Link
+      className="btn w-100 btn-primary "
+      to={{
+        pathname: `/compliments/form`,
+        state: {
+          people: people
+        }
+      }}
     >
-      Give a Compliment
-    </button>
+      Give a compliment
+    </Link>
   );
 };
 
-export default AddComplimentButton;
+export default ComplimentButton;

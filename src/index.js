@@ -23,6 +23,7 @@ import PeoplePage from './pages/peoplePage'
 import PeopleDetailsPage from './pages/peopleDetailsPage'
 import MarkPeoplePage from './pages/MarkPeoplePage'
 import PeoplesContextProvider from './contexts/peoplesContext'
+import AddPeopleComplimentPage from './pages/addPeopleComplimentPage'
 
 const App = () => {
     return (
@@ -35,6 +36,7 @@ const App = () => {
                             <GenresContextProvider>    {/* NEW */}
                                 <AuthProvider>
                                     <Switch>
+                                        <Route exact path="/compliments/form" component={AddPeopleComplimentPage} />
                                         <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                                         <Route path="/reviews/:id" component={MovieReviewPage} />
                                         <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />

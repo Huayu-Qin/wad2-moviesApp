@@ -1,20 +1,18 @@
-import React, { useContext } from "react";
-//import StubAPI from "../api/stubAPI";
-import PeopleListPageTemplate from "../components/templatePeopleListPage"
+import React, {useContext} from "react";
+import PeopleListPageTemplate from "../components/templatePeopleListPage";
 import AddComplimentButton from '../components/buttons/addCompliment'
 import {PeoplesContext} from '../contexts/peoplesContext'
 
+const MarkPeoplesPage = props => {
+  const context = useContext(PeoplesContext);
+  const marks = context.peoples.filter( p => p.mark )
+  return (
+    <PeopleListPageTemplate
+      peoples={marks}
+      title={"Mark People"}
+      action={people => <AddComplimentButton people={people} />}
+    />
+  );
+};
 
-const MarkPeoplePage = props => {
-    const context = useContext(PeoplesContext)
-    const marks = context.peoples.filter(p => p.mark)
-    return (
-        <PeopleListPageTemplate
-            peoples={marks}
-            title='Marked Actors'
-            action={people => <AddComplimentButton people={people} />}
-        />
-    );
-}
-
-export default MarkPeoplePage
+export default MarkPeoplesPage;
