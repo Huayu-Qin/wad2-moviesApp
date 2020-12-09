@@ -5,12 +5,14 @@ import React, { useContext } from "react";
 //import StubAPI from '../api/stubAPI'
 import PageTemplate from '../components/templatePeopleListPage'
 import { PeoplesContext } from "../contexts/peoplesContext";
-
+import AddToMarksButton from '../components/buttons/addToMarks'
 const PeopleListPage = () => {
   //const [titleFilter] = useState(""); 
   //const [peoples, setPeoples] = useState([])
-
+  
   const context = useContext(PeoplesContext)
+  
+ 
   // useEffect(() => {
   //   getPeoples().then(peoples => {
   //     setPeoples(peoples);
@@ -32,13 +34,14 @@ const PeopleListPage = () => {
   //     return newPeoplesState;
   //   });
   // };
-
   return (
     <PageTemplate
       title='Marked People'
       /* <FilterControls /> */
       peoples={context.peoples}
-      action={context.addToMarks}
+      action={(people)=> {
+        return <AddToMarksButton people={people} />
+      }}
     />
   );
 };
