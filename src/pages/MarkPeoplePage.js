@@ -9,7 +9,7 @@ const MarkPeoplesPage = props => {
   return (
     <PeopleListPageTemplate
       peoples={marks}
-      title={"Mark People"}
+      title={"Marked People"}
       action={people => <AddComplimentButton people={people} />}
     />
   );

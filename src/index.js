@@ -40,7 +40,7 @@ const App = () => {
                                         <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                                         <Route path="/reviews/:id" component={MovieReviewPage} />
                                         <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                                        <PrivateRoute exact path="/movies/upcoming" component={UpcomingMoviesPage} />
+                                        <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                                         <Route exact path="/movies/signup" component={signUpPage} />
                                         <Route exact path="/movies/login" component={loginPage} />
                                         <PrivateRoute exact path="/movies/profile" component={profilePage} />
@@ -50,7 +50,7 @@ const App = () => {
                                         <Route exact path="/people/marks" component={MarkPeoplePage} />
                                         <Route exact path="/people/:id" component={PeopleDetailsPage} />
                                         <Route path="/movies/:id" component={MoviePage} />
-                                        <PrivateRoute path="/" component={HomePage} />
+                                        <Route path="/" component={HomePage} />
                                         <Redirect from="*" to="/" />
                                     </Switch>
                                 </AuthProvider>
