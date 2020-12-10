@@ -59,5 +59,23 @@ describe("PeopleNavigation", () => {
             cy.get("h2").contains(peoples[0].name);
         });
     });
-
+    describe("The Go Back button", () => {
+        beforeEach(() => {
+            cy.visit("/people");
+        });
+        it("should navigate from people page to people details and back", () => {
+            cy.get(".card").eq(1).find("img").click();
+            cy.get("svg[data-icon=arrow-circle-left]").click();
+            cy.url().should("include", `/people`);
+            cy.get("h2").contains("Popular People");
+        });
+        it("should navigate from Marked People page to people details and back", () => {
+            cy.get(".card").eq(0).find("button").click();
+            cy.get("nav").find("li").eq(4).find("a").click();
+            cy.get(".card").eq(0).find("img").click();
+            cy.get("svg[data-icon=arrow-circle-left]").click();
+            cy.url().should("include", `/people/marks`);
+            cy.get("h2").contains("Marked People");
+        });
+    });
 });
