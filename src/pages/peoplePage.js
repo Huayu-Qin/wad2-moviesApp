@@ -39,7 +39,7 @@ const PeopleListPage = () => {
   // };
   return (
     <PageTemplate
-      title='Marked People'
+      title='Popular People'
       /* <FilterControls /> */
       peoples={peoples}
       action={(people) => {
