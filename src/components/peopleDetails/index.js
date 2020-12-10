@@ -2,9 +2,6 @@ import React from "react";
 import "./peopleDetails.css";
 
 export default ({ people }) => {
-  const peopleGender = (people) => {
-    return (people.gender === 1) ? 'Female' : 'Male'
-  };
   return (
     <>
       <h4>Biography</h4>
@@ -20,7 +17,7 @@ export default ({ people }) => {
           Gender
         </li>
         <li key="gdv" className="list-group-item ">
-          {peopleGender}
+          {people.gender === 1 ? "female" : "male"}
         </li>
       </ul>
 
@@ -46,6 +43,22 @@ export default ({ people }) => {
         </li>
         <li key="hpt" className="list-group-item ">
           {people.known_for_department}
+        </li>
+      </ul>
+      <ul className="list-group list-group-horizontal">
+        <li key="hph" className="list-group-item list-group-item-dark">
+          Popularity
+        </li>
+        <li key="hpt" className="list-group-item ">
+          {people.popularity}
+        </li>
+      </ul>
+      <ul className="list-group list-group-horizontal">
+        <li key="hph" className="list-group-item list-group-item-dark">
+          Home page
+        </li>
+        <li key="hpt" className="list-group-item ">
+          {people.homepage}
         </li>
       </ul>
     </>
