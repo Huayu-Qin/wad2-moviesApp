@@ -27,7 +27,8 @@ describe("PeopleNavigation", () => {
 
     describe("From the people page", () => {
         beforeEach(() => {
-            cy.visit("/people");
+            cy.visit("/");
+            cy.get("nav").find("li").eq(3).find("a").click();
         });
         it("should navigate to the movie details page and change browser URL", () => {
             cy.get(".card").eq(1).find("img").click();
@@ -49,7 +50,8 @@ describe("PeopleNavigation", () => {
     });
     describe("From the Marked People page", () => {
         beforeEach(() => {
-            cy.visit("/people");
+            cy.visit("/");
+            cy.get("nav").find("li").eq(3).find("a").click();
             cy.get(".card").eq(0).find("button").click();
             cy.get("nav").find("li").eq(4).find("a").click();
         });
@@ -61,7 +63,8 @@ describe("PeopleNavigation", () => {
     });
     describe("The Go Back button", () => {
         beforeEach(() => {
-            cy.visit("/people");
+            cy.visit("/");
+            cy.get("nav").find("li").eq(3).find("a").click();
         });
         it("should navigate from people page to people details and back", () => {
             cy.get(".card").eq(1).find("img").click();

@@ -1,6 +1,7 @@
 describe("People Page", () => {
     beforeEach(() => {
-      cy.visit("/people");
+      cy.visit("/");
+      cy.get("nav").find("li").eq(3).find("a").click();
     });
   
     describe("Base test", () => {
