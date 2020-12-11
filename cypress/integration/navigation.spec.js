@@ -64,6 +64,7 @@ describe("Navigation", () => {
     //         cy.url().should("include", `/reviews/${reviews[0].id}`);
     //     });
     // });
+    //
 
     describe("From the Favorites page", () => {
         beforeEach(() => {
