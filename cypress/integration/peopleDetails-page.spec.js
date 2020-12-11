@@ -53,13 +53,8 @@ describe("People Details Page", () => {
                 cy.get("li").eq(1).contains(people.popularity);
             });
     });
-    it("should display the Home icon with the correct URL value", () => {
-        cy.visit(`/people/500`)
-        cy.get(".fa-home")
-          .parent()
-          .should("have.attr", "href")
-        //   .should("include", people.homepage);
-      });
+ 
+      
       it("should display the people poster with the appropriate src attribute", () => {
         cy.get(".people")
             .should("have.attr", "src")
