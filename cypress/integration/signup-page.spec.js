@@ -28,4 +28,23 @@ describe("Login", () => {
             cy.get('a[href*="/movies/login"]').contains("Log In");
         });
     });
+    describe("Error Enter", () => {
+        it("should display 'There should be a @ in email' after after entering q", () => {
+            cy.get("input").eq(0).clear().type("q")
+            cy.get("button").click()
+            cy.get('p').contains("There should be a @ in email")
+        });
+
+        it("should display 'Password should not be empty'", () => {
+            cy.get("input").eq(0).clear().type("q@qq.com")
+            cy.get("button").click()
+            cy.get('p').contains("Password should not be empty and comfirm again")
+        });
+        it("should display 'Password should be comfirm again'", () => {
+            cy.get("input").eq(0).clear().type("q@qq.com")
+            cy.get("input").eq(1).clear().type("q@qq.com")
+            cy.get("button").click()
+            cy.get('p').contains("Password should not be empty and comfirm again")
+        });
+    })
 })

@@ -12,6 +12,16 @@ export default function Signup() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+    const [msg, setMsg] = useState("")
+
+    const judgeMent = (e) => {
+
+        if (emailRef.current.value !== null && emailRef.current.value.indexOf("@") < 0) {
+            setMsg("There should be a @ in email")
+        } else {
+            setMsg("Password should not be empty and comfirm again")
+        }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -52,11 +62,12 @@ export default function Signup() {
                             <Form.Label>Password Confirmation</Form.Label>
                             <Form.Control type="password" ref={passwordConfirmRef} required />
                         </Form.Group>
-
-                        <Button disabled={loading} classname="w-100" type="submit" id="signupbutton">
-                            Sign Up
+                        <div onClick={judgeMent}>
+                            <p>{msg}</p>
+                            <Button disabled={loading} classname="w-100" type="submit" id="signupbutton">
+                                Sign Up
                         </Button>
-
+                        </div>
                     </Form>
                 </Card.Body>
             </Card>
