@@ -17,9 +17,9 @@ describe("Login", () => {
         it("should display a Log In button in the container", () => {
             cy.get("button").contains("Log In");
         });
-        it("should display 'Forgot Password?' in the container", () => {
-            cy.get('a[href*="/movies/forget-password"]').contains("Forgot Password?");
-        });
+        // it("should display 'Forgot Password?' in the container", () => {
+        //     cy.get('a[href*="/movies/forget-password"]').contains("Forgot Password?");
+        // });
         it("should display 'Sign up' out of the container", () => {
             cy.get('a[href*="/movies/signup"]').contains("Sign Up");
         });
@@ -31,10 +31,16 @@ describe("Login", () => {
             cy.get('p').contains("There should be a @ in email")
         });
 
-        it("should display 'password should not be empty'", () => {
+        // it("should display 'password should not be empty'", () => {
+        //     cy.get("input").eq(0).clear().type("1@qq.com")
+        //     cy.get("button").click()
+        //     cy.get('p').contains("password should not be empty")
+        // });
+        it("should display 'Failed to log in'When you enter incorrect data", () => {
             cy.get("input").eq(0).clear().type("1@qq.com")
+            cy.get("input").eq(1).clear().type("1234567")
             cy.get("button").click()
-            cy.get('p').contains("password should not be empty")
+            cy.get('.fade').contains("Failed to log in")
         });
     })
     describe("Button", () => {

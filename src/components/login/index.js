@@ -18,8 +18,8 @@ export default function Login() {
 
         if (emailRef.current.value !== null && emailRef.current.value.indexOf("@") < 0 ) {
             setMsg("There should be a @ in email")
-        } else {
-            setMsg("password should not be empty")
+        } else if(emailRef.current.value !== null && passwordRef.current.value !== null ){
+            setMsg("")
         }
     }
     const handleSubmit = async (e) => {
@@ -62,9 +62,9 @@ export default function Login() {
                         </Button>
                         </div>
                     </Form>
-                    <div className="w-100 text-center mt-3">
+                    {/* <div className="w-100 text-center mt-3">
                         <Link to="/movies/forget-password">Forgot Password?</Link>
-                    </div>
+                    </div> */}
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">

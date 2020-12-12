@@ -35,16 +35,30 @@ describe("Login", () => {
             cy.get('p').contains("There should be a @ in email")
         });
 
-        it("should display 'Password should not be empty'", () => {
-            cy.get("input").eq(0).clear().type("q@qq.com")
+        // it("should display 'Password should not be empty'", () => {
+        //     cy.get("input").eq(0).clear().type("q@qq.com")
+        //     cy.get("button").click()
+        //     cy.get('p').contains("Password should not be empty and comfirm again")
+        // });
+        // it("should display 'Password should be comfirm again'", () => {
+        //     cy.get("input").eq(0).clear().type("q@qq.com")
+        //     cy.get("input").eq(1).clear().type("q@qq.com")
+        //     cy.get("button").click()
+        //     cy.get('p').contains("Password should not be empty and comfirm again")
+        // });
+        it("should display 'Passwords do not match'When you enter existing account email", () => {
+            cy.get("input").eq(0).clear().type("qqq4@qq.com")
+            cy.get("input").eq(1).clear().type("1234567")
+            cy.get("input").eq(2).clear().type("1234568")
             cy.get("button").click()
-            cy.get('p').contains("Password should not be empty and comfirm again")
+            cy.get('.fade').contains("Passwords do not match")
         });
-        it("should display 'Password should be comfirm again'", () => {
-            cy.get("input").eq(0).clear().type("q@qq.com")
-            cy.get("input").eq(1).clear().type("q@qq.com")
+        it("should display 'Failed to create an account'When you enter existing account email", () => {
+            cy.get("input").eq(0).clear().type("qqq3@qq.com")
+            cy.get("input").eq(1).clear().type("1234567")
+            cy.get("input").eq(2).clear().type("1234567")
             cy.get("button").click()
-            cy.get('p').contains("Password should not be empty and comfirm again")
+            cy.get('.fade').contains("Failed to create an account")
         });
     })
     describe("Button", () => {

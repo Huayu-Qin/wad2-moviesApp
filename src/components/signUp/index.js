@@ -18,7 +18,9 @@ export default function Signup() {
 
         if (emailRef.current.value !== null && emailRef.current.value.indexOf("@") < 0) {
             setMsg("There should be a @ in email")
-        } else {
+        } else if(emailRef.current.value !== null && emailRef.current.value !== null && passwordConfirmRef.current.value !==null){
+            setMsg("")
+        } else{
             setMsg("Password should not be empty and comfirm again")
         }
     }
@@ -47,7 +49,7 @@ export default function Signup() {
             <Card classname="d-flex align-items-center justify-content-center">
                 <Card.Body>
                     <h2 className="text-center mb-4" id="signup">Sign Up</h2>
-                    {currentUser && currentUser.email}
+                    {/* {currentUser && currentUser.email} */}
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit}>
                         <Form.Group id="email">
