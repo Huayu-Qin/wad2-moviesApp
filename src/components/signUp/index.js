@@ -1,6 +1,6 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
-import { useAuth, AuthContext } from '../../contexts/authContext'
+import { useAuth } from '../../contexts/authContext'
 import { Link, useHistory } from 'react-router-dom'
 
 export default function Signup() {
@@ -18,9 +18,9 @@ export default function Signup() {
 
         if (emailRef.current.value !== null && emailRef.current.value.indexOf("@") < 0) {
             setMsg("There should be a @ in email")
-        } else if(emailRef.current.value !== null && emailRef.current.value !== null && passwordConfirmRef.current.value !==null){
+        } else if (emailRef.current.value !== null && emailRef.current.value !== null && passwordConfirmRef.current.value !== null) {
             setMsg("")
-        } else{
+        } else {
             setMsg("Password should not be empty and comfirm again")
         }
     }
