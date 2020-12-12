@@ -19,7 +19,7 @@ export default function Login() {
         if (emailRef.current.value !== null && emailRef.current.value.indexOf("@") < 0 ) {
             setMsg("There should be a @ in email")
         } else {
-            setMsg("password should not be emoty")
+            setMsg("password should not be empty")
         }
     }
     const handleSubmit = async (e) => {
