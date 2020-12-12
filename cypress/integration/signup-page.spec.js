@@ -47,4 +47,19 @@ describe("Login", () => {
             cy.get('p').contains("Password should not be empty and comfirm again")
         });
     })
+    describe("Button", () => {
+        it("should navigate to the profile page after entering correct data", () => {
+            cy.get("input").eq(0).clear().type("qqq4@qq.com")
+            cy.get("input").eq(1).clear().type("qqqqqq4")
+            cy.get("input").eq(2).clear().type("qqqqqq4")
+            cy.get("button").click()
+            cy.url().should("include", `/movies/profile`);
+            cy.get("#profile")
+        });
+        it("should navigate to login page ", () => {
+            cy.get('a[href*="/movies/login"]').contains("Log In").click()
+            cy.url().should("include", `/movies/login`);
+            cy.get("h2").contains("Log In");
+        });
+    });
 })
