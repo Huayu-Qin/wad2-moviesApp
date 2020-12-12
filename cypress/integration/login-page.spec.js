@@ -37,4 +37,18 @@ describe("Login", () => {
             cy.get('p').contains("password should not be empty")
         });
     })
-});
+    describe("Button", () => {
+        it("should navigate to the home page after entering correct data", () => {
+            cy.get("input").eq(0).clear().type("qqq3@qq.com")
+            cy.get("input").eq(1).clear().type("qqqqqq3")
+            cy.get("button").click()
+            cy.url().should("include", `/`);
+            cy.get("#qhy")
+        });
+        it("should navigate to signup page ", () => {
+            cy.get('a[href*="/movies/signup"]').contains("Sign Up").click()
+            cy.url().should("include", `/movies/signup`);
+            cy.get("h2").contains("Sign Up");
+        });
+    });
+})
