@@ -36,7 +36,7 @@ export default function Signup() {
         <>
             <Card classname="d-flex align-items-center justify-content-center">
                 <Card.Body>
-                    <h2 className="text-center mb-4">Sign Up</h2>
+                    <h2 className="text-center mb-4" id="signup">Sign Up</h2>
                     {currentUser && currentUser.email}
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit}>
@@ -53,7 +53,7 @@ export default function Signup() {
                             <Form.Control type="password" ref={passwordConfirmRef} required />
                         </Form.Group>
 
-                        <Button disabled={loading} classname="w-100" type="submit">
+                        <Button disabled={loading} classname="w-100" type="submit" id="signupbutton">
                             Sign Up
                         </Button>
 
