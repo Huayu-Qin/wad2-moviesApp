@@ -1,4 +1,4 @@
-describe("Login", () => {
+describe("Login out", () => {
     beforeEach(() => {
         cy.visit(`/`);
         cy.get("nav").find("li").eq(5).find("a").click();
@@ -17,4 +17,11 @@ describe("Login", () => {
             cy.get(".card").contains("qqq3@qq.com");
         });
     });
+    describe("Logout out function", () => {
+        it("should navigate to the log In ", () => {
+            cy.get("button").contains("Log Out").click()
+            cy.url().should("include", `/movies/login`);
+            cy.get("#login")
+        })
+    })
 });
