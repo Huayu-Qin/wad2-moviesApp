@@ -30,7 +30,7 @@ const App = () => {
         <BrowserRouter>
             <div className="jumbotron">
                 <SiteHeader />
-                <div className="container-fluid">
+                <div className="container-fluid mt-3">
                     <MoviesContextProvider>
                         <PeoplesContextProvider>
                             <GenresContextProvider>    {/* NEW */}

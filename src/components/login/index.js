@@ -12,7 +12,16 @@ export default function Login() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+    const [msg, setMsg] = useState("")
 
+    const judgeMent = (e) => {
+
+        if (emailRef.current.value !== null && emailRef.current.value.indexOf("@") < 0 ) {
+            setMsg("There should be a @ in email")
+        } else {
+            setMsg("password should not be emoty")
+        }
+    }
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -30,25 +39,28 @@ export default function Login() {
     }
 
     return (
-        <>
+        <div classname="w-50">
             <Card classmame>
                 <Card.Body >
                     <h2 className="text-center mb-1">Log In</h2>
 
                     {error && <Alert variant="danger">{error}</Alert>}
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={handleSubmit} classname="w-50">
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" ref={emailRef} required />
+                            <Form.Control type="email" ref={emailRef} required classname="w-50" />
                         </Form.Group>
                         <Form.Group id="password">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" ref={passwordRef} required />
+                            <Form.Control type="password" ref={passwordRef} required classname="w-50" />
                         </Form.Group>
 
-                        <Button disabled={loading} classname="w-100" type="submit">
-                            Log In
+                        <div onClick={judgeMent}>
+                            <p>{msg}</p>
+                            <Button disabled={loading} classname="d-flex align-items-center justify-content-center" type="submit">
+                                Log In
                         </Button>
+                        </div>
                     </Form>
                     <div className="w-100 text-center mt-3">
                         <Link to="/movies/forget-password">Forgot Password?</Link>
@@ -58,6 +70,6 @@ export default function Login() {
             <div className="w-100 text-center mt-2">
                 Need an account? <Link to="/movies/signup">Sign Up</Link>
             </div>
-        </>
+        </div>
     )
 }
