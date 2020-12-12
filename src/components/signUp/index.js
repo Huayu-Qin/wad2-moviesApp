@@ -4,7 +4,7 @@ import { useAuth, AuthContext } from '../../contexts/authContext'
 import { Link, useHistory } from 'react-router-dom'
 
 export default function Signup() {
-    const { currentUser } = useContext(AuthContext)
+    // const { currentUser } = useContext(AuthContext)
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()

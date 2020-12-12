@@ -1,4 +1,4 @@
-describe("Login", () => {
+describe("Signup", () => {
     beforeEach(() => {
         cy.visit(`/`);
         cy.get("nav").find("li").eq(5).find("a").click();
