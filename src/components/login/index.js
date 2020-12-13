@@ -16,10 +16,14 @@ export default function Login() {
 
     const judgeMent = (e) => {
 
-        if (emailRef.current.value !== null && emailRef.current.value.indexOf("@") < 0 ) {
+        if (emailRef.current.value && emailRef.current.value.indexOf("@") < 0) {
             setMsg("There should be a @ in email")
-        } else if(emailRef.current.value !== null && passwordRef.current.value !== null ){
+        } else if (emailRef.current.value && passwordRef.current.value) {
             setMsg("")
+        } else if ((emailRef.current.value) && !(passwordRef.current.value)) {
+            setMsg("Password should not be empty")
+        } else if ((passwordRef.current.value) && !(emailRef.current.value)) {
+            setMsg("Email should not be empty")
         }
     }
     const handleSubmit = async (e) => {

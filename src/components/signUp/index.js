@@ -16,12 +16,16 @@ export default function Signup() {
 
     const judgeMent = (e) => {
 
-        if (emailRef.current.value !== null && emailRef.current.value.indexOf("@") < 0) {
+        if (emailRef.current.value  && emailRef.current.value.indexOf("@") < 0) {
             setMsg("There should be a @ in email")
-        } else if (emailRef.current.value !== null && emailRef.current.value !== null && passwordConfirmRef.current.value !== null) {
+        } else if (emailRef.current.value  && emailRef.current.value  && passwordConfirmRef.current.value) {
             setMsg("")
-        } else {
-            setMsg("Password should not be empty and comfirm again")
+        } else if ((emailRef.current.value) && !(passwordRef.current.value)) {
+            setMsg("Password should not be empty")
+        } else if ((passwordRef.current.value) && !(emailRef.current.value)) {
+            setMsg("Email should not be empty")
+        }else if ((passwordRef.current.value) && (emailRef.current.value) && !(passwordConfirmRef.current.value)) {
+            setMsg("Password should be confirmed again")
         }
     }
 
