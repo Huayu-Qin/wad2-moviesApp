@@ -42,6 +42,18 @@ describe("Login", () => {
             cy.get("button").contains("Log In").click()
             cy.get('.fade').contains("Failed to log in")
         });
+        it("should display 'Email should not be empty'", () => {
+            
+            cy.get("input").eq(1).clear().type("1234567")
+            cy.get("button").contains("Log In").click()
+            cy.get('p').contains("Email should not be empty")
+        });
+        it("should display 'Password should not be empty'", () => {
+            cy.get("input").eq(0).clear().type("12@")
+            
+            cy.get("button").contains("Log In").click()
+            cy.get('p').contains("Password should not be empty")
+        });
     })
     describe("Button", () => {
         it("should navigate to the home page after entering correct data", () => {

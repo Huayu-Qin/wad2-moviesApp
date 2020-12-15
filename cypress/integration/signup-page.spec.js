@@ -24,9 +24,9 @@ describe("Signup", () => {
             cy.get("#signupbutton");
         });
 
-        it("should display 'Log In' out of the container", () => {
-            cy.get('a[href*="/movies/login"]').contains("Log In");
-        });
+        // it("should display 'Log In' out of the container", () => {
+        //     cy.get('a[href*="/movies/login"]').contains("Log In");
+        // });
     });
     describe("Error Enter", () => {
         it("should display 'There should be a @ in email' after after entering q", () => {
@@ -59,6 +59,20 @@ describe("Signup", () => {
             cy.get("input").eq(2).clear().type("1234567")
             cy.get("button").contains("Sign Up").click()
             cy.get('.fade').contains("Failed to create an account")
+        });
+        it("should display 'Email should not be empty'", () => {
+  
+            cy.get("input").eq(1).clear().type("1234567")
+            cy.get("input").eq(2).clear().type("1234567")
+            cy.get("button").contains("Sign Up").click()
+            cy.get('p').contains("Email should not be empty")
+        });
+        it("should display 'Password should be confirmed again'", () => {
+            cy.get("input").eq(0).clear().type("12@")
+    
+            cy.get("input").eq(1).clear().type("1234567")
+            cy.get("button").contains("Sign Up").click()
+            cy.get('p').contains("Password should be confirmed again")
         });
     })
     describe("Button", () => {
