@@ -44,8 +44,8 @@ const App = () => {
                                         <Route exact path="/compliments/form" component={AddPeopleComplimentPage} />
                                         <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                                         <Route path="/reviews/:id" component={MovieReviewPage} />
-                                        <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                                        <Route exact path="/movies/watchlists" component={WatchListMoviesPage} />
+                                        <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                                        <PrivateRoute exact path="/movies/watchlists" component={WatchListMoviesPage} />
                                         <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                                         <Route exact path ="/movies/toprated" component={TopRatedMoviesPage} />
                                         <Route exact path="/:id/similar" component={SimilarMoviesPage}/>
@@ -56,7 +56,7 @@ const App = () => {
                                         <Route exact path="/movies/forget-password" component={forgetPasswordPage} />
                                         <PrivateRoute exact path="/movies/update-profile" component={updateProfilePage} />
                                         <Route exact path="/people" component={PeoplePage} />
-                                        <Route exact path="/people/marks" component={MarkPeoplePage} />
+                                        <PrivateRoute exact path="/people/marks" component={MarkPeoplePage} />
                                         <Route exact path="/people/:id" component={PeopleDetailsPage} />
                                         <Route path="/movies/:id" component={MoviePage} />
                                         <Route path="/" component={HomePage} />
