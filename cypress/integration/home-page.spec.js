@@ -21,10 +21,7 @@ describe("Home Page", () => {
     })
     beforeEach(() => {
         cy.visit("/");
-
-        cy.get("a").contains("Actors In the movie").click();
-        cy.url().should("include", `/${movie.id}/movie-credits`);
-        cy.get(".table").contains("Photo");
+        
     });
 
     describe("Base test", () => {
