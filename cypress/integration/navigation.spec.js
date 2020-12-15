@@ -23,28 +23,41 @@ describe("Navigation", () => {
                 console.log(response);
                 reviews = response.results;
             });
+        // cy.visit("/");
+        // cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
+        // cy.get("input").eq(0).clear().type("qqq3@qq.com")
+        // cy.get("input").eq(1).clear().type("qqqqqq3")
+        // cy.get("button").contains("Log In").click()
     });
 
     describe("From the home page", () => {
         beforeEach(() => {
             cy.visit("/");
+
+
         });
         it("should navigate to the movie details page and change browser URL", () => {
+
             cy.get(".card").eq(1).find("img").click();
             cy.url().should("include", `/movies/${movies[1].id}`);
             cy.get("h2").contains(movies[1].title);
         });
         it("should allow navigation from site header", () => {
-            cy.get("nav").find("li").eq(2).find("a").click();
+            cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
+            cy.get("input").eq(0).clear().type("qqq3@qq.com")
+            cy.get("input").eq(1).clear().type("qqqqqq3")
+            cy.get("button").contains("Log In").click()
+            cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
+
             cy.url().should("include", `/favorites`);
             cy.get("h2").contains("Favorite Movies");
-            cy.get("nav").find("li").eq(1).find("a").click();
+            cy.get('a[href*="/movies/watchlists"]').should('be.hidden').invoke('show').click({ force: true })
             cy.url().should("not.include", `/favorites`);
-            cy.get("h2").contains("Upcoming Movies");
-            cy.get("nav").find("li").eq(0).find("a").click();
-            cy.get("nav.navbar-brand").find("a").click();
-            cy.url().should("not.include", `/favorites`);
-            cy.get("h2").contains("Discover Movies");
+            cy.get("h2").contains("WatchList");
+            // cy.get('a[href*="/movies/upcoming"]').should('be.hidden').invoke('show').click({ force: true })
+            // cy.get("nav.navbar-brand").find("a").click();
+            // cy.url().should("not.include", `/favorites`);
+            // cy.get("h2").contains("Upcoming Movies");
         });
     });
 
@@ -69,10 +82,14 @@ describe("Navigation", () => {
     describe("From the Favorites page", () => {
         beforeEach(() => {
             cy.visit("/");
-            cy.get(".card").eq(0).find("button").click();
-            cy.get("nav").find("li").eq(2).find("a").click();
+            cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
+            cy.get("input").eq(0).clear().type("qqq3@qq.com")
+            cy.get("input").eq(1).clear().type("qqqqqq3")
+            cy.get("button").contains("Log In").click()
+            cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
         });
         it("should navigate to the movies detail page and change the browser URL", () => {
+            cy.visit("/");
             cy.get(".card").eq(0).find("img").click();
             cy.url().should("include", `/movies/${movies[0].id}`);
             cy.get("h2").contains(movies[0].title);
@@ -82,16 +99,23 @@ describe("Navigation", () => {
     describe("The Go Back button", () => {
         beforeEach(() => {
             cy.visit("/");
+            cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
+            cy.get("input").eq(0).clear().type("qqq3@qq.com")
+            cy.get("input").eq(1).clear().type("qqqqqq3")
+            cy.get("button").contains("Log In").click()
+    
         });
         it("should navigate from home page to movie details and back", () => {
+            cy.visit("/");
             cy.get(".card").eq(1).find("img").click();
             cy.get("svg[data-icon=arrow-circle-left]").click();
             cy.url().should("not.include", `/movies`);
             cy.get("h2").contains("Discover Movies");
         });
         it("should navigate from favorites page to movie details and back", () => {
+            cy.visit("/");
             cy.get(".card").eq(0).find("button").click();
-            cy.get("nav").find("li").eq(2).find("a").click();
+            cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
             cy.get(".card").eq(0).find("img").click();
             cy.get("svg[data-icon=arrow-circle-left]").click();
             cy.url().should("include", `/movies/favorites`);

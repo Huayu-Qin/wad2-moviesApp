@@ -28,20 +28,20 @@ const SiteHeader = () => {
       <nav className="navbar navbar-expand ">
         <ul className="navbar-nav">
           <div class="dropdown" >
-            <button class="dropbtn">movies</button>
+            <button class="dropbtn" id="navigation-Movie">Movie</button>
             <div class="dropdown-content">
 
-              <li className="nav-item">
+              <li className="nav-item" id = "home">
                 <Link className="nav-link text-white" to="/">
                   Home
             </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" id="Upcoming">
                 <Link className="nav-link text-white" to="/movies/upcoming">
                   Upcoming
             </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" id="TopRated">
                 <Link className="nav-link text-white" to="/movies/toprated">
                   Top Rated
             </Link>
@@ -55,19 +55,19 @@ const SiteHeader = () => {
           </li>
 
           <div class="dropdown" >
-            <button class="dropbtn">Collection</button>
+            <button class="dropbtn" id="navigation-Collection">Collection</button>
             <div class="dropdown-content">
-              <li className="nav-item">
+              <li className="nav-item" id="FavoriteMovies">
                 <Link className="nav-link text-white" to="/movies/favorites">
                   FavoriteMovies
             </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" id="WatchList">
                 <Link className="nav-link text-white" to="/movies/watchlists">
                   WatchList
             </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" id="MarkedPeople">
                 <Link className="nav-link text-white" to="/people/marks">
                   MarkedPeople
             </Link>

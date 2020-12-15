@@ -1,7 +1,7 @@
 describe("Signup", () => {
     beforeEach(() => {
         cy.visit(`/`);
-        cy.get("nav").find("li").eq(5).find("a").click();
+        cy.get("nav").find("li").eq(7).find("a").click();
         cy.get('a[href*="/movies/signup"]').contains("Sign Up").click()
         
     });
@@ -31,7 +31,7 @@ describe("Signup", () => {
     describe("Error Enter", () => {
         it("should display 'There should be a @ in email' after after entering q", () => {
             cy.get("input").eq(0).clear().type("q")
-            cy.get("button").click()
+            cy.get("button").contains("Sign Up").click()
             cy.get('p').contains("There should be a @ in email")
         });
 
@@ -50,14 +50,14 @@ describe("Signup", () => {
             cy.get("input").eq(0).clear().type("qqq4@qq.com")
             cy.get("input").eq(1).clear().type("1234567")
             cy.get("input").eq(2).clear().type("1234568")
-            cy.get("button").click()
+            cy.get("button").contains("Sign Up").click()
             cy.get('.fade').contains("Passwords do not match")
         });
         it("should display 'Failed to create an account'When you enter existing account email", () => {
             cy.get("input").eq(0).clear().type("qqq3@qq.com")
             cy.get("input").eq(1).clear().type("1234567")
             cy.get("input").eq(2).clear().type("1234567")
-            cy.get("button").click()
+            cy.get("button").contains("Sign Up").click()
             cy.get('.fade').contains("Failed to create an account")
         });
     })
@@ -66,7 +66,7 @@ describe("Signup", () => {
             cy.get("input").eq(0).clear().type("qqq4@qq.com")
             cy.get("input").eq(1).clear().type("qqqqqq4")
             cy.get("input").eq(2).clear().type("qqqqqq4")
-            cy.get("button").click()
+            cy.get("button").contains("Sign Up").click()
             cy.url().should("include", `/movies/profile`);
             cy.get("#profile")
         });
