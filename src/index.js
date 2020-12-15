@@ -25,6 +25,7 @@ import MarkPeoplePage from './pages/MarkPeoplePage'
 import PeoplesContextProvider from './contexts/peoplesContext'
 import AddPeopleComplimentPage from './pages/addPeopleComplimentPage'
 import TopRatedMoviesPage from './pages/topRatedMoviesPage'
+import SimilarMoviesPage from './pages/similarMoviesPage'
 
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
                                         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
                                         <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                                         <Route exact path ="/movies/toprated" component={TopRatedMoviesPage} />
+                                        <Route exact path ="/movies/similar" component={SimilarMoviesPage} />
                                         <Route exact path="/movies/signup" component={signUpPage} />
                                         <Route exact path="/movies/login" component={loginPage} />
                                         <PrivateRoute exact path="/movies/profile" component={profilePage} />
