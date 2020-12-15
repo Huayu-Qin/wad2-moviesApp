@@ -1,5 +1,6 @@
 import React from "react";
 import "./movieDetails.css";
+import { Link } from "react-router-dom"
 
 export default ({ movie }) => {
   return (
@@ -61,6 +62,15 @@ export default ({ movie }) => {
           </li>
         ))}
       </ul>
+      <div style={{marginTop:10}}>
+          <Link
+                className="btn btn-primary btn-block active"
+                to={{pathname :`/${movie.id}/similar`}}
+              >
+                Similar Movies
+          </Link>
+      </div>
+
     </>
   );
 };
