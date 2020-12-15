@@ -5,6 +5,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
 import FavoriteMoviesPage from './pages/favoritesMoviesPage'
+import WatchListMoviesPage from './pages/watchListsMoviesPage'
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
 import UpcomingMoviesPage from './pages/upcomingMoviesPage'
@@ -12,7 +13,7 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import "bootstrap/dist/css/bootstrap.min.css"
-import AuthProvider from "./contexts/authContext"
+import AuthProvider from "./contexts/authContext" 
 import signUpPage from "./pages/signUpPage";
 import loginPage from "./pages/loginPage";
 import profilePage from "./pages/profilePage";
@@ -43,6 +44,7 @@ const App = () => {
                                         <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                                         <Route path="/reviews/:id" component={MovieReviewPage} />
                                         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                                        <Route exact path="/movies/watchlists" component={WatchListMoviesPage} />
                                         <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                                         <Route exact path ="/movies/toprated" component={TopRatedMoviesPage} />
                                         <Route path="/:id/similar" component={SimilarMoviesPage}/>
