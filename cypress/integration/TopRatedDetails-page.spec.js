@@ -61,16 +61,19 @@ describe("TopRated Details Page", () => {
             cy.get(".card").eq(2).find("img").click();
         })
         it("should nativate to the Similar Movies", () => {
+            cy.wait(10000)
             cy.get("a").contains("Similar Movies").click();
             cy.url().should("include", `/${movie.id}/similar`);
             cy.get("h2").contains("Similar Movies");
         });
-        it("should nativate to the Similar Movies", () => {
+        it("should nativate to the list of actors Page", () => {
+            cy.wait(10000)
             cy.get("a").contains("Actors In the movie").click();
             cy.url().should("include", `/${movie.id}/movie-credits`);
             cy.get(".table").contains("Photo");
         })
-        it("should nativate to the Similar Movies and back to the details Page", () => {
+        it("should nativate to the list of actors page and back to the details Page", () => {
+            cy.wait(10000)
             cy.get("a").contains("Actors In the movie").click();
             cy.url().should("include", `/${movie.id}/movie-credits`);
             cy.get(".table").contains("Photo");

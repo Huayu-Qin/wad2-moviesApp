@@ -43,6 +43,7 @@ describe("Navigation", () => {
             cy.get("h2").contains(movies[1].title);
         });
         it("should allow navigation from site header", () => {
+            cy.wait(10000)
             cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
             cy.get("input").eq(0).clear().type("qqq3@qq.com")
             cy.get("input").eq(1).clear().type("qqqqqq3")
@@ -54,10 +55,7 @@ describe("Navigation", () => {
             cy.get('a[href*="/movies/watchlists"]').should('be.hidden').invoke('show').click({ force: true })
             cy.url().should("not.include", `/favorites`);
             cy.get("h2").contains("WatchList");
-            // cy.get('a[href*="/movies/upcoming"]').should('be.hidden').invoke('show').click({ force: true })
-            // cy.get("nav.navbar-brand").find("a").click();
-            // cy.url().should("not.include", `/favorites`);
-            // cy.get("h2").contains("Upcoming Movies");
+
         });
     });
 

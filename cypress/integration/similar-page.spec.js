@@ -36,7 +36,7 @@ describe("Similar Movies Page", () => {
 
     describe("Base test", () => {
         it("displays page header", () => {
-
+            cy.wait(10000)
             cy.get("h2").contains("Similar Movies");
             cy.get(".badge").contains(20);
         });
