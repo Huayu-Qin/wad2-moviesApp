@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Header from "../headerMovieList";
-import MovieList from "../movieList2";
+import MovieList from "../movieRateList";
 import FilterControls from "../filterControls";
 
-const MovieListPageTemplate2 = ({ movies, title, action }) => {
+const MovieRateListPageTemplate = ({ movies, title, action }) => {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genre = Number(genreFilter)
@@ -34,4 +34,4 @@ const MovieListPageTemplate2 = ({ movies, title, action }) => {
   );
 };
 
-export default MovieListPageTemplate2;
+export default MovieRateListPageTemplate;

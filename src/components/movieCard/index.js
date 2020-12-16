@@ -31,6 +31,10 @@ const MovieCard = ({ movie, action }) => {
                         <span> {movie.vote_average}</span>
                     </p>
                 </div>
+                <div classname = "card-over">
+                    <h2>overview</h2>
+                    <p>{movie.overview}</p>
+                </div>
                 <div className="card-footer">
                     {action(movie)}
                 </div>

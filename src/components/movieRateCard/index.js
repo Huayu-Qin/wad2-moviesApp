@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./movieCard2.css";
+import "./movieRateCard.css";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Rate } from 'antd';
@@ -13,7 +13,7 @@ const customIcons = {
     4: <SmileOutlined />,
     5: <SmileOutlined />,
   };
-const MovieCard2 = ({ movie, action }) => {
+const MovieRateCard = ({ movie, action }) => {
 
     return (
         <div className="col-sm-3">
@@ -51,4 +51,4 @@ const MovieCard2 = ({ movie, action }) => {
     );
 };
 
-export default MovieCard2;
+export default MovieRateCard;
