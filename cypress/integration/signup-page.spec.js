@@ -13,13 +13,13 @@ describe("Signup", () => {
             cy.get("#signup")
         });
         it("should display Email in the container", () => {
-            cy.get("label").contains("Email");
+            cy.label("Email");
         });
         it("should display Password in the container", () => {
-            cy.get("label").contains("Password");
+            cy.label("Password");
         });
         it("should display Password Confirmation in the container", () => {
-            cy.get("label").contains("Password Confirmation");
+            cy.label("Password Confirmation");
         });
         it("should display a Sign Up button in the container", () => {
             cy.get("#signupbutton");

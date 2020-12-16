@@ -37,8 +37,8 @@ const PeopleCard = ({ people, action }) => {
           </p>
         </div>
         <div classname="card-over">
-          <h2>overview</h2>
-          <p>{people.overview}</p>
+          {/* <h2>overview</h2> */}
+          {/* <p>{people.overview}</p> */}
         </div>
         <div className="card-footer">
           {action(people)}

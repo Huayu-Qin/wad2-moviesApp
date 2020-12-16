@@ -1,3 +1,4 @@
+import {  } from "module";
 describe("Login", () => {
     beforeEach(() => {
         cy.wait(10000)
@@ -10,10 +11,10 @@ describe("Login", () => {
             cy.get("h2").contains("Log In");
         });
         it("should display Email in the container", () => {
-            cy.get("label").contains("Email");
+            cy.label("Email");
         });
         it("should display Password in the container", () => {
-            cy.get("label").contains("Password");
+            cy.label("Password");
         });
         // it("should display a Log In button in the container", () => {
         //     cy.get("button").contains("Log");
