@@ -27,6 +27,7 @@ describe("PeopleNavigation", () => {
 
     describe("From the people page", () => {
         beforeEach(() => {
+            cy.wait(10000)
             cy.visit("/");
             cy.get("nav").find("li").eq(3).find("a").click();
         });
@@ -50,6 +51,7 @@ describe("PeopleNavigation", () => {
     });
     describe("From the Marked People page", () => {
         beforeEach(() => {
+            cy.wait(10000)
             cy.visit("/");
             cy.get("nav").find("li").eq(3).find("a").click();
 
@@ -63,6 +65,7 @@ describe("PeopleNavigation", () => {
     });
     describe("The Go Back button", () => {
         beforeEach(() => {
+            cy.wait(10000)
             cy.visit("/");
             cy.get("nav").find("li").eq(3).find("a").click();
         });

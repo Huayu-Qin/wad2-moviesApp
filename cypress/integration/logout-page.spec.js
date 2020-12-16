@@ -1,5 +1,6 @@
 describe("Login out", () => {
     beforeEach(() => {
+        cy.wait(10000)
         cy.visit(`/`);
         cy.get("nav").find("li").eq(7).find("a").click();
         cy.get("input").eq(0).clear().type("qqq3@qq.com")

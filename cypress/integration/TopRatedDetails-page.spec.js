@@ -28,12 +28,14 @@ describe("TopRated Details Page", () => {
             })
     });
     beforeEach(() => {
+        cy.wait(10000)
         cy.visit(`/`);
         cy.get('a[href*="/movies/toprated"]').should('be.hidden').invoke('show').click({ force: true })
         cy.get(".card").eq(2).find("img").click();
     });
     describe(("Base component"), () => {
         beforeEach(() => {
+            cy.wait(10000)
             cy.visit(`/`);
             cy.get('a[href*="/movies/toprated"]').should('be.hidden').invoke('show').click({ force: true })
             cy.get(".card").eq(2).find("img").click();
@@ -56,6 +58,7 @@ describe("TopRated Details Page", () => {
     })
     describe(("Button fuction"), () => {
         beforeEach(() => {
+            cy.wait(10000)
             cy.visit(`/`);
             cy.get('a[href*="/movies/toprated"]').should('be.hidden').invoke('show').click({ force: true })
             cy.get(".card").eq(2).find("img").click();

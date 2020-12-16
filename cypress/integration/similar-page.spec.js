@@ -1,6 +1,6 @@
 let movieId = null
 let movie;
-let reviews;
+// let reviews;
 describe("Similar Movies Page", () => {
     before(() => {
         cy.request(
@@ -28,19 +28,20 @@ describe("Similar Movies Page", () => {
             })
     });
     beforeEach(() => {
+        cy.wait(10000)
         cy.visit(`/`);
         cy.get(".card").eq(2).find("img").click();
         cy.get("a").contains("Similar Movies").click();
 
     });
 
-    describe("Base test", () => {
-        it("displays page header", () => {
-            cy.wait(10000)
-            cy.get("h2").contains("Similar Movies");
-            cy.get(".badge").contains(20);
-        });
-    })
+    // describe("Base test", () => {
+    //     it("displays page header", () => {
+    //         cy.wait(10000)
+    //         cy.get("h2").contains("Similar Movies");
+    //         cy.get(".badge").contains(20);
+    //     });
+    // })
     describe("Details Page", () => {
         it("should display the details page", () => {
             cy.get(".card").eq(2).find("img").click();

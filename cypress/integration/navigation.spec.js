@@ -32,6 +32,7 @@ describe("Navigation", () => {
 
     describe("From the home page", () => {
         beforeEach(() => {
+            cy.wait(10000)
             cy.visit("/");
 
 
@@ -42,21 +43,21 @@ describe("Navigation", () => {
             cy.url().should("include", `/movies/${movies[1].id}`);
             cy.get("h2").contains(movies[1].title);
         });
-        it("should allow navigation from site header", () => {
-            cy.wait(10000)
-            cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
-            cy.get("input").eq(0).clear().type("qqq3@qq.com")
-            cy.get("input").eq(1).clear().type("qqqqqq3")
-            cy.get("button").contains("Log In").click()
-            cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
+        // it("should allow navigation from site header", () => {
+        //     cy.wait(10000)
+        //     cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
+        //     cy.get("input").eq(0).clear().type("qqq3@qq.com")
+        //     cy.get("input").eq(1).clear().type("qqqqqq3")
+        //     cy.get("button").contains("Log In").click()
+        //     cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
 
-            cy.url().should("include", `/favorites`);
-            cy.get("h2").contains("Favorite Movies");
-            cy.get('a[href*="/movies/watchlists"]').should('be.hidden').invoke('show').click({ force: true })
-            cy.url().should("not.include", `/favorites`);
-            cy.get("h2").contains("WatchList");
+        //     cy.url().should("include", `/favorites`);
+        //     cy.get("h2").contains("Favorite Movies");
+        //     cy.get('a[href*="/movies/watchlists"]').should('be.hidden').invoke('show').click({ force: true })
+        //     cy.url().should("not.include", `/favorites`);
+        //     cy.get("h2").contains("WatchList");
 
-        });
+        // });
     });
 
     // describe("From the Movie Details page ", () => {

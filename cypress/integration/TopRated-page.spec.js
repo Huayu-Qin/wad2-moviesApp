@@ -20,6 +20,7 @@ describe("TopRated Page", () => {
             })
     })
     beforeEach(() => {
+        cy.wait(10000)
         cy.visit("/");
         cy.get('a[href*="/movies/toprated"]').should('be.hidden').invoke('show').click({ force: true })
     });
