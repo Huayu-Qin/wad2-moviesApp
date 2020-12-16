@@ -30,7 +30,7 @@ describe("People Details Page", () => {
     beforeEach(() => {
         cy.wait(10000)
         cy.visit(`/`);
-        cy.get("nav").find("li").eq(3).find("a").click();
+        cy.get("nav").find("li").eq(3).find("a").click({ force: true });
         cy.get(".card").eq(2).find("img").click({force: true});
     });
 
