@@ -81,8 +81,10 @@ describe("PeopleNavigation", () => {
             cy.get("input").eq(0).clear().type("qqq3@qq.com")
             cy.get("input").eq(1).clear().type("qqqqqq3")
             cy.get("button").contains("Log In").click()
+            cy.wait(10000)
             cy.get("nav").find("li").eq(3).find("a").click({ force: true });
             cy.get(".card").eq(0).find("button").click();
+            cy.wait(10000)
             cy.get('a[href*="/people/marks"]').should('be.hidden').invoke('show').click({ force: true })
             cy.get(".card").eq(0).find("img").click();
             cy.get("svg[data-icon=arrow-circle-left]").click({force: true});
