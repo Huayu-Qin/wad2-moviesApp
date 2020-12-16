@@ -1,10 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./movieCard.css";
+import "./movieRateCard.css";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const MovieCard = ({ movie, action }) => {
+import { Rate } from 'antd';
+import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
+import 'antd/dist/antd.css'
+const customIcons = {
+    1: <FrownOutlined />,
+    2: <FrownOutlined />,
+    3: <MehOutlined />,
+    4: <SmileOutlined />,
+    5: <SmileOutlined />,
+  };
+const MovieRateCard = ({ movie, action }) => {
 
     return (
         <div className="col-sm-3">
@@ -31,16 +40,15 @@ const MovieCard = ({ movie, action }) => {
                         <span> {movie.vote_average}</span>
                     </p>
                 </div>
-                <div classname = "card-over">
-                    <h2>overview</h2>
-                    <p>{movie.overview}</p>
-                </div>
                 <div className="card-footer">
                     {action(movie)}
+                    <Rate defaultValue={3} character={({ index }) => customIcons[index + 1]} />
+  
+                    
                 </div>
             </div>
         </div>
     );
 };
 
-export default MovieCard;
+export default MovieRateCard;

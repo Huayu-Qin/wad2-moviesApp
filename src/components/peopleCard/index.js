@@ -4,7 +4,7 @@ import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router-dom'
 
-const PeopleCard = ({people, action}) => {
+const PeopleCard = ({ people, action }) => {
 
   // const handleAddToMarks = e => {
   //   e.preventDefault()
@@ -35,6 +35,10 @@ const PeopleCard = ({people, action}) => {
             <FontAwesomeIcon icon={["fas", "star"]} />
             <span> {people.popularity}</span>
           </p>
+        </div>
+        <div classname="card-over">
+          {/* <h2>overview</h2> */}
+          {/* <p>{people.overview}</p> */}
         </div>
         <div className="card-footer">
           {action(people)}

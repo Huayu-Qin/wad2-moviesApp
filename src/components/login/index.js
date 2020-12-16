@@ -46,7 +46,7 @@ export default function Login() {
         <div classname="w-50">
             <Card classmame>
                 <Card.Body >
-                    <h2 className="text-center mb-1" id="login">Log In</h2>
+                    <h2 className="card-body text-center" id="login">Log In</h2>
 
                     {error && <Alert variant="danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit} classname="w-50">

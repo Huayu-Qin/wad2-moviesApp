@@ -29,7 +29,7 @@ describe("PeopleNavigation", () => {
         beforeEach(() => {
             cy.wait(10000)
             cy.visit("/");
-            cy.get("nav").find("li").eq(3).find("a").click();
+            cy.get("nav").find("li").eq(3).find("a").click({force: true});
         });
         it("should navigate to the movie details page and change browser URL", () => {
             cy.get(".card").eq(1).find("img").click();
@@ -53,7 +53,7 @@ describe("PeopleNavigation", () => {
         beforeEach(() => {
             cy.wait(10000)
             cy.visit("/");
-            cy.get("nav").find("li").eq(3).find("a").click();
+            cy.get("nav").find("li").eq(3).find("a").click({force: true});
 
         });
         it("should navigate to the people detail page and change the browser URL", () => {
@@ -67,7 +67,7 @@ describe("PeopleNavigation", () => {
         beforeEach(() => {
             cy.wait(10000)
             cy.visit("/");
-            cy.get("nav").find("li").eq(3).find("a").click();
+            cy.get("nav").find("li").eq(3).find("a").click({force: true});
         });
         it("should navigate from people page to people details and back", () => {
             cy.get(".card").eq(1).find("img").click();
@@ -81,11 +81,13 @@ describe("PeopleNavigation", () => {
             cy.get("input").eq(0).clear().type("qqq3@qq.com")
             cy.get("input").eq(1).clear().type("qqqqqq3")
             cy.get("button").contains("Log In").click()
-            cy.get("nav").find("li").eq(3).find("a").click();
+            cy.wait(10000)
+            cy.get("nav").find("li").eq(3).find("a").click({ force: true });
             cy.get(".card").eq(0).find("button").click();
+            cy.wait(10000)
             cy.get('a[href*="/people/marks"]').should('be.hidden').invoke('show').click({ force: true })
             cy.get(".card").eq(0).find("img").click();
-            cy.get("svg[data-icon=arrow-circle-left]").click();
+            cy.get("svg[data-icon=arrow-circle-left]").click({force: true});
             cy.url().should("include", `/people/marks`);
             cy.get("h2").contains("Marked People");
         });

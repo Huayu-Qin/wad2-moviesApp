@@ -31,14 +31,14 @@ describe("TopRated Details Page", () => {
         cy.wait(10000)
         cy.visit(`/`);
         cy.get('a[href*="/movies/toprated"]').should('be.hidden').invoke('show').click({ force: true })
-        cy.get(".card").eq(2).find("img").click();
+        cy.get(".card").eq(2).find("img").click({ force: true });
     });
     describe(("Base component"), () => {
         beforeEach(() => {
             cy.wait(10000)
             cy.visit(`/`);
             cy.get('a[href*="/movies/toprated"]').should('be.hidden').invoke('show').click({ force: true })
-            cy.get(".card").eq(2).find("img").click();
+            cy.get(".card").eq(2).find("img").click({ force: true });
         })
         it("should display movie title in the page header", () => {
             cy.get("h2").contains(movie.title);
