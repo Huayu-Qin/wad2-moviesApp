@@ -30,19 +30,19 @@ describe("Navigation", () => {
         // cy.get("button").contains("Log In").click()
     });
 
-    describe("From the home page", () => {
-        beforeEach(() => {
-            cy.wait(10000)
-            cy.visit("/");
+    // describe("From the home page", () => {
+    //     beforeEach(() => {
+    //         cy.wait(10000)
+    //         cy.visit("/");
 
 
-        });
-        it("should navigate to the movie details page and change browser URL", () => {
+    //     });
+    //     it("should navigate to the movie details page and change browser URL", () => {
 
-            cy.get(".card").eq(1).find("img").click();
-            cy.url().should("include", `/movies/${movies[1].id}`);
-            cy.get("h2").contains(movies[1].title);
-        });
+    //         cy.get(".card").eq(1).find("img").click();
+    //         cy.url().should("include", `/movies/${movies[1].id}`);
+    //         cy.get("h2").contains(movies[1].title);
+    //     });
         // it("should allow navigation from site header", () => {
         //     cy.wait(10000)
         //     cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
@@ -58,7 +58,7 @@ describe("Navigation", () => {
         //     cy.get("h2").contains("WatchList");
 
         // });
-    });
+    // });
 
     // describe("From the Movie Details page ", () => {
     //     beforeEach(() => {
@@ -111,14 +111,14 @@ describe("Navigation", () => {
             cy.url().should("not.include", `/movies`);
             cy.get("h2").contains("Discover Movies");
         });
-        it("should navigate from favorites page to movie details and back", () => {
-            cy.visit("/");
-            cy.get(".card").eq(0).find("button").click();
-            cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
-            cy.get(".card").eq(0).find("img").click();
-            cy.get("svg[data-icon=arrow-circle-left]").click();
-            cy.url().should("include", `/movies/favorites`);
-            cy.get("h2").contains("Favorite Movies");
-        });
+    //     it("should navigate from favorites page to movie details and back", () => {
+    //         cy.visit("/");
+    //         cy.get(".card").eq(0).find("button").click();
+    //         cy.get('a[href*="/movies/favorites"]').should('be.hidden').invoke('show').click({ force: true })
+    //         cy.get(".card").eq(0).find("img").click();
+    //         cy.get("svg[data-icon=arrow-circle-left]").click();
+    //         cy.url().should("include", `/movies/favorites`);
+    //         cy.get("h2").contains("Favorite Movies");
+    //     });
     });
 });
