@@ -174,3 +174,44 @@ storiesOf("Movie Details Page/MovieHeader", module)
       />
     );
   });
+
+  storiesOf("Movie People Page/MoviePeopleDetails", module).add("default", () => (
+    <MoviePeopleDetails people={sample} />
+  ));
+  
+  storiesOf("Movie People Page/PeopleHeader", module)
+    .addDecorator(story => (
+      <PeopleHeader initialEntries={["/"]}>{story()}</PeopleHeader>
+    ))
+    .add("default", () => <PeopleHeader people={sample} />);
+  
+    storiesOf("Movie People Page/PeopleHeader", module)
+    .addDecorator(story => (
+      <PeopleDetailsHeader initialEntries={["/"]}>{story()}</PeopleDetailsHeader>
+    ))
+    .add("default", () => <PeopleDetailsHeader people={sample} />);
+  
+  
+  
+    storiesOf("Movie Details Page/MovieHeader", module)
+    .addDecorator(story => (
+      <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+    ))
+    .add("default", () => <MovieHeader movie={sample} />);
+  
+    storiesOf("Movie People Page/PeopleList", module)
+    .addDecorator(story => (
+      <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+    ))
+    .add("default", () => {
+      const peoples = [sample, sample, sample, sample, sample];
+      return (
+        <PeopleList
+          peoples={peoples}
+          action={people => (
+            <button className="btn w-100 btn-primary">Test</button>
+          )}
+        />
+      );
+    });
+  
