@@ -29,7 +29,7 @@ describe("PeopleNavigation", () => {
         beforeEach(() => {
             cy.wait(10000)
             cy.visit("/");
-            cy.get("nav").find("li").eq(3).find("a").click();
+            cy.get("nav").find("li").eq(3).find("a").click({force: true});
         });
         it("should navigate to the movie details page and change browser URL", () => {
             cy.get(".card").eq(1).find("img").click();
@@ -85,7 +85,7 @@ describe("PeopleNavigation", () => {
             cy.get(".card").eq(0).find("button").click();
             cy.get('a[href*="/people/marks"]').should('be.hidden').invoke('show').click({ force: true })
             cy.get(".card").eq(0).find("img").click();
-            cy.get("svg[data-icon=arrow-circle-left]").click();
+            cy.get("svg[data-icon=arrow-circle-left]").click({force: true});
             cy.url().should("include", `/people/marks`);
             cy.get("h2").contains("Marked People");
         });

@@ -31,7 +31,7 @@ describe("People Details Page", () => {
         cy.wait(10000)
         cy.visit(`/`);
         cy.get("nav").find("li").eq(3).find("a").click();
-        cy.get(".card").eq(2).find("img").click();
+        cy.get(".card").eq(2).find("img").click({force: true});
     });
 
     it("should display peope name in the page header", () => {
