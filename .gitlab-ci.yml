@@ -5,12 +5,8 @@ image: cypress/browsers:node12.0.0-chrome73
 stages:
   - install
   - build
-  - exercise
   - test
 
-# Jobs
-
-# NEW
 variables:
   npm_config_cache: "$CI_PROJECT_DIR/.npm"
   CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
@@ -23,7 +19,8 @@ cache:
     - .npm
     - cache/Cypress
     - node_modules
-# END NEW
+
+# Jobs
 
 install_dependencies:
   stage: install
@@ -38,30 +35,11 @@ bundle_app:
     paths:
       - build/
 
-build_jobX:
-  stage: build
-  only:
-    - demobranch
-  script:
-    - echo "build job X on demoBranch works"
-
-build_exercise_job:
-  stage: exercise
-  only:
-    - master
-  script:
-    - echo "build exercise_job on master branch works"
-
-test_jobX:
+test:
   stage: test
   only:
+    - staging
     - master
-    - demobranch2
-  script:
-    - echo "test job X"
-
-e2etest:
-  stage: test
   before_script:
     - npm install -g http-server
     - npm install cypress
