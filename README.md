@@ -385,7 +385,7 @@ describe("The Go Back button", () => {
 [movieDetails]: ./public/movieDetails.png
 [review]: ./public/review.png
 [reviewLink]: ./public/reviewLink.png
-[cardLink]: ./public/cardLink.png
+[cardLink]: ./public/cardlink.png
 [stories]: ./public/storybook.png
 [login]: ./public/login.png
 [signup]: ./public/signup.png
