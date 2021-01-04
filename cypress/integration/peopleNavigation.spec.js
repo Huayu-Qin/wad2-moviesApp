@@ -71,7 +71,7 @@ describe("PeopleNavigation", () => {
         });
         it("should navigate from people page to people details and back", () => {
             cy.get(".card").eq(1).find("img").click();
-            cy.get("svg[data-icon=arrow-circle-left]").click();
+            cy.get("svg[data-icon=arrow-circle-left]").click({force: true});
             cy.url().should("include", `/people`);
             cy.get("h2").contains("Popular People");
         });

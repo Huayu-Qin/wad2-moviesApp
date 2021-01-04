@@ -3,6 +3,7 @@ describe("Login out", () => {
         cy.wait(10000)
         cy.visit(`/`);
         cy.get("nav").find("li").eq(7).find("a").click();
+        cy.wait(10000)
         cy.get("input").eq(0).clear().type("qqq3@qq.com")
         cy.get("input").eq(1).clear().type("qqqqqq3")
         cy.get("button").contains("Log In").click()

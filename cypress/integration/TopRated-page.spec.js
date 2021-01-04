@@ -26,6 +26,7 @@ describe("TopRated Page", () => {
     });
     describe("Base test", () => {
         it("displays page header", () => {
+            cy.wait(10000)
             cy.get("h2").contains("Top Rated Movies");
             cy.get(".badge").contains(20);
         });
