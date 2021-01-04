@@ -9,6 +9,7 @@ describe("Signup", () => {
     describe("Setup Component", () => {
 
         it("should display Set Up the container", () => {
+            cy.wait(10000)
             cy.url().should("include", `/movies/signup`);
             cy.get("#signup")
         });

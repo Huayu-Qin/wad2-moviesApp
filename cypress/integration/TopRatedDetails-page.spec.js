@@ -41,6 +41,7 @@ describe("TopRated Details Page", () => {
             cy.get(".card").eq(2).find("img").click({ force: true });
         })
         it("should display movie title in the page header", () => {
+            cy.wait(10000)
             cy.get("h2").contains(movie.title);
         });
         it("should display the movie's details", () => {
